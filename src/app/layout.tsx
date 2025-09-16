@@ -31,7 +31,7 @@ export default function RootLayout({
         <div className="bg-black relative">
           <Navbar />
           {children}
-        </div>{" "}
+        </div>
       </body>
     </html>
   );

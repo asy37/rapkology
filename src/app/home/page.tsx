@@ -1,6 +1,6 @@
+import { HomeView } from "@/features/home/view/HomeView";
+
 const Home = () => {
-    return (
-        <div>Home</div>
-    )
-}
-export default Home
+  return <HomeView />;
+};
+export default Home;

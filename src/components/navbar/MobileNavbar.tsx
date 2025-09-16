@@ -19,7 +19,7 @@ export const MobileNavbar = () => {
       <div className="relative min-w-full min-h-full">
         <div
           className={twMerge(
-            "absolute z-10  flex flex-col items-center gap-[30px] bg-black p-10 transition-all duration-300",
+            "absolute z-[999]  flex flex-col items-center gap-[30px] bg-black p-10 transition-all duration-300",
             open ? "min-w-full min-h-full" : "min-w-0 min-h-0 opacity-0"
           )}
         >

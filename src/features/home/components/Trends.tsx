@@ -1,4 +1,4 @@
-import { TrendingUpIcon } from "lucide-react";
+import { ArrowRightIcon, TrendingUpIcon } from "lucide-react";
 import Image from "next/image";
 import { trendsData } from "../utils";
 
@@ -28,8 +28,9 @@ export const Trends = () => {
                 </div>
                 <p>{i.description}</p>
                 <div className="w-full h-[1px] bg-[#3B3B3B]" />
-                <button className="text-start cursor-pointer">
+                <button className="group flex gap-2 items-center text-start cursor-pointer">
                   Daha Fazla Oku
+                  <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-[#F0E74D]" />
                 </button>
               </div>
             </div>
@@ -38,7 +39,7 @@ export const Trends = () => {
       </div>
       <div className="w-full flex justify-center">
         <button
-          className="w-fit bg-white px-6 py-3 text-sm font-bold text-black"
+          className=" w-fit bg-white px-6 py-3 text-sm font-bold text-black cursor-pointer"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
           }}

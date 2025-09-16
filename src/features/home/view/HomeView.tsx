@@ -1,68 +1,38 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
 import Image from "next/image";
-import { swiperData } from "../utils";
-import { twMerge } from "tailwind-merge";
+import { SwiperView } from "../components/SwiperView";
+import { Trends } from "../components/Trends";
+import { ChevronDownIcon, HeartIcon, StarIcon } from "lucide-react";
 export const HomeView = () => {
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }}
-      pagination={{ clickable: true }}
-      spaceBetween={50}
-      slidesPerView={1}
-      className="h-[700px]"
-      loop
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
-    >
-      {swiperData.map((i) => {
-        return (
-          <SwiperSlide key={i.id} className="relative w-full">
-            <Image src={i.src} alt={i.alt} fill className="object-cover" />
-            <div className="absolute top-20 text-center lg:top-48 lg:right-48 max-w-[500px]">
-              <h1 className={twMerge("font-bold text-3xl lg:text-6xl", i.textColor)}>
-                {i.title}
-              </h1>
-              <p className={twMerge("text-md", i.textColor)}>{i.description}</p>
-              <div className="relative inline-block">
-                <div
-                  className="relative translate-x-2 translate-y-12 bg-black px-6 py-6 text-sm font-bold text-black"
-                  style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);",
-                  }}
-                />
-
-                <button
-                  className="relative bg-[#F0E74D] px-6 py-3 text-sm font-bold text-black"
-                  style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);",
-                  }}
-                >
-                  Devamını Oku
-                </button>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 z-10 h-40 min-w-full">
-              <Image
-                className=" object-cover"
-                src={"/swipper/Vector.png"}
-                alt="1"
-                fill
-              />
-            </div>
-          </SwiperSlide>
-        );
-      })}
-      <div className="swiper-button-prev hidden md:flex" />
-      <div className="swiper-button-next hidden md:flex" />
-    </Swiper>
+    <div className="flex flex-col h-full">
+      <div>
+        <SwiperView />
+      </div>
+      <div className="relative w-full h-[642px]">
+        <Image
+          className="object-cover"
+          src="/banner/herobanner.png"
+          alt="banner"
+          fill
+          priority
+        />
+        <div className="flex gap-2 absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-4 border rounded-4xl border-gray-700 -rotate-4">
+          <button className="text-white rounded-xl bg-[#864CF6] flex gap-2 p-3 items-center cursor-pointer">
+            <HeartIcon size={16} />
+            <span className="font-bold text-md">Takip Et</span>
+          </button>
+          <button className="text-white flex rounded-xl gap-2 bg-[#222123] p-3 items-center cursor-pointer">
+            <StarIcon size={16} />
+            <span className="font-bold text-md">Abone Ol</span>
+            <ChevronDownIcon size={16} />
+          </button>
+        </div>
+      </div>
+      <div>
+        <Trends />
+      </div>
+    </div>
   );
 };

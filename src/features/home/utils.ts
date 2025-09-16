@@ -19,3 +19,48 @@ export const swiperData = [
   },
 
 ];
+
+export const trendsData = [
+  {
+    id:1,
+    number: '01',
+    img: '/trends/person1.png',
+    name: 'Jonathan Stewart',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+  {
+    id:2,
+    number: '02',
+    img: '/trends/person2.png',
+    name: 'Steve Rogerson',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+  {
+    id:3,
+    number: '03',
+    img: '/trends/person3.png',
+    name: 'Ismail Kor',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+  {
+    id:4,
+    number: '04',
+    img: '/trends/person1.png',
+    name: 'Jonathan Stewart',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+  {
+    id:5,
+    number: '05',
+    img: '/trends/person2.png',
+    name: 'Steve Rogerson',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+  {
+    id:6,
+    number: '06',
+    img: '/trends/person3.png',
+    name: 'Ismail Kor',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.'
+  },
+]

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SwiperView } from "../components/SwiperView";
 import { Trends } from "../components/Trends";
 import { ChevronDownIcon, HeartIcon, StarIcon } from "lucide-react";
+import { MounthFavorite } from "../components/MounthFavorite";
 export const HomeView = () => {
   return (
     <div className="flex flex-col h-full">
@@ -32,6 +33,9 @@ export const HomeView = () => {
       </div>
       <div>
         <Trends />
+      </div>
+      <div>
+        <MounthFavorite />
       </div>
     </div>
   );

@@ -66,8 +66,8 @@ export const SwiperView = () => {
           </SwiperSlide>
         );
       })}
-      <div className="swiper-button-prev hidden md:flex custom-swiper-button" />
-      <div className="swiper-button-next hidden md:flex custom-swiper-button" />
+      <div className="swiper-button-prev custom-swiper-button-mobile  custom-swiper-button" />
+      <div className="swiper-button-next custom-swiper-button-mobile  custom-swiper-button" />
     </Swiper>
   );
 };

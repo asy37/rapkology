@@ -28,6 +28,12 @@ body {
 .custom-swiper-button {
   color: white !important;
 }
+@media only screen and (max-width: 600px) {
+  .swiper-button-prev.custom-swiper-button-mobile,
+  .swiper-button-next.custom-swiper-button-mobile {
+    display: none !important;
+  }
+}
 .swiper-pagination-bullet {
   background: gray !important;
 }

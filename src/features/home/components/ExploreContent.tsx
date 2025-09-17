@@ -11,8 +11,8 @@ export const ExploreContent = () => {
             key={i._id}
             className="flex items-start flex-col md:flex-row gap-4 w-full py-8 text-white"
           >
-            <div className="h-full flex flex-col justify-between gap-2">
-              <div className="relative bg-amber-400 h-48 w-72">
+            <div className="h-full w-full flex flex-col justify-between gap-2">
+              <div className="relative bg-amber-400 h-48 w-full md:w-72">
                 <Image
                   className="object-cover"
                   src={i.attributes.img}

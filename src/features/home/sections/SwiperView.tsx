@@ -46,7 +46,7 @@ export const SwiperView = () => {
                 />
 
                 <button
-                  className="relative bg-[#F0E74D] px-6 py-3 text-sm font-bold text-black"
+                  className="relative bg-[#F0E74D] px-6 py-3 text-sm font-bold text-black cursor-pointer"
                   style={{
                     clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
                   }}

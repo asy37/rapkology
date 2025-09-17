@@ -1,32 +1,49 @@
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
-import { trendsData } from "../utils";
+import { useHome } from "../hooks/useHome";
 export const ExploreContent = () => {
+  const { data: blogData } = useHome();
   return (
     <div className="flex flex-col gap-8 mb-4">
-      {trendsData.map((i) => {
+      {blogData?.slice(-3).map((i) => {
         return (
           <div
-            key={i.id}
-            className="flex items-start flex-col md:flex-row gap-4 w-full p-8 text-white"
+            key={i._id}
+            className="flex items-start flex-col md:flex-row gap-4 w-full py-8 text-white"
           >
             <div className="h-full flex flex-col justify-between gap-2">
-              <Image src={i.img} alt="person" width={300} height={196} />
+              <div className="relative bg-amber-400 h-48 w-72">
+                <Image
+                  className="object-cover"
+                  src={i.attributes.img}
+                  alt="person"
+                  fill
+                />
+              </div>
               <span className="text-[#3B3B3B] text-base">
-                {i.date ?? "02-02-2222"}
+                {new Date(i.createdAt).toLocaleDateString("tr-TR", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
               </span>
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <span className="h-8 w-8">
-                  <Image src={i.img} alt="person" width={100} height={100} />
+                <span className="relative h-8 w-8">
+                  <Image
+                    className="rounded-lg"
+                    src={i.attributes.img}
+                    alt="person"
+                    fill
+                  />
                 </span>
                 <span className="text-sm font-bold md:font-medium md:text-base">
-                  {i.name}
+                  {i.attributes.authors}
                 </span>
               </div>
               <p className="text-xl md:text-2xl font-bold">
-                {i.description.toLocaleUpperCase()}
+                {i.attributes.desc.toLocaleUpperCase()}
               </p>
               <div className="w-full h-[1px] bg-[#3B3B3B]" />
               <button className="group flex gap-2 items-center text-start cursor-pointer">

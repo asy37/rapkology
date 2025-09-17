@@ -8,8 +8,8 @@ export const ExploreLeftHeaders = () => {
   return (
     <div className="flex items-start w-full justify-between text-white ">
       <div className="flex items-center gap-2 text-white">
-        <h1 className="text-6xl font-bold">KEŞFET</h1>
-        <CompassIcon size={60} className="text-[#F0E74D]" />
+        <h1 className="text-4xl md:text-6xl font-bold">KEŞFET</h1>
+        <CompassIcon  className="text-[#F0E74D] md:size-14 size-10" />
       </div>
       <div className="flex items-center gap-4 mt-4">
         <SearchIcon size={24} />

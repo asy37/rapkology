@@ -8,9 +8,9 @@ export const ExploreContent = () => {
         return (
           <div
             key={i.id}
-            className="flex items-start gap-4 w-full p-8 text-white"
+            className="flex items-start flex-col md:flex-row gap-4 w-full p-8 text-white"
           >
-            <div className="h-full flex flex-col justify-between">
+            <div className="h-full flex flex-col justify-between gap-2">
               <Image src={i.img} alt="person" width={300} height={196} />
               <span className="text-[#3B3B3B] text-base">
                 {i.date ?? "02-02-2222"}
@@ -21,9 +21,9 @@ export const ExploreContent = () => {
                 <span className="h-8 w-8">
                   <Image src={i.img} alt="person" width={100} height={100} />
                 </span>
-                <span>{i.name}</span>
+                <span className="text-sm font-bold md:font-medium md:text-base">{i.name}</span>
               </div>
-              <p className="text-2xl font-bold">
+              <p className="text-xl md:text-2xl font-bold">
                 {i.description.toLocaleUpperCase()}
               </p>
               <div className="w-full h-[1px] bg-[#3B3B3B]" />

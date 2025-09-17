@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Footer = () => {
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-[40px] font-bold text-white ">
+      <h1 className="text-2xl md:text-[40px] font-bold text-white ">
         GELİŞMELERDEN İLK SEN HABERDAR OL!
       </h1>
       <div className="w-full flex items-center justify-between">
@@ -53,7 +53,7 @@ export const Footer = () => {
           height={24}
         />
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-3 md:grid-cols-2">
         {NavData.map((i) => {
           return (
             <button

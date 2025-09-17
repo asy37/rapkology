@@ -4,12 +4,15 @@ import { PlayCircleIcon } from "lucide-react";
 
 export const FavoriteContent = () => {
   return (
-    <div className="max-w-8xl h-72 overflow-x-auto grid grid-cols-3 items-start gap-20 relative">
+    <div className="max-w-76 md:max-w-6xl h-96 overflow-x-auto flex md:grid md:grid-cols-3 items-start gap-20 relative">
       {favoriteData.map((i) => {
         return (
-          <div key={i.id} className="w-68 h-60 bg-[#2A2A2A] relative group">
+          <div
+            key={i.id}
+            className="w-68 h-88 bg-[#2A2A2A] relative group shrink-0"
+          >
             <div className="relative w-68 h-60 z-20 overflow-hidden">
-              <div className="object-cover absolute top-3 -translate-x-28 group-hover:translate-x-6 group-hover:rotate-[9deg] transition-all duration-600 w-full h-full">
+              <div className="object-cover absolute top-3 md:-translate-x-28 translate-x-5 group-hover:translate-x-6 group-hover:rotate-[9deg] transition-all duration-600 w-full h-full">
                 <Image
                   src={i.img}
                   alt={i.album}
@@ -22,16 +25,18 @@ export const FavoriteContent = () => {
                 </button>
               </div>
             </div>
-            <div className="w-30 text-white bg-[#323232] text-center rounded-full absolute right-10 top-16">
+            <div className="w-30 text-white bg-[#323232] text-center rounded-full absolute right-18 md:right-10 top-60 md:top-16">
               <span className="text-base">{i.top}</span>
               <span className="text-base font-bold">{i.line}</span>
             </div>
-            <span className="w-30 text-base  text-white text-center rounded-full absolute right-10 top-28">
-              {i.name}
-            </span>
-            <span className="w-30 text-base font-bold text-white text-center rounded-full absolute right-10 top-32">
-              {i.album}
-            </span>
+            <div className="w-30 flex md:flex-col gap-1 absolute right-28 md:right-10 top-68 md:top-28 text-center">
+              <span className="w-30 text-base  text-white text-center rounded-full">
+                {i.name}
+              </span>
+              <span className="w-30 text-base font-bold text-white text-center rounded-full">
+                {i.album}
+              </span>
+            </div>
             <Image
               src="/favorite/Vectorfavorite.png"
               alt="vector"

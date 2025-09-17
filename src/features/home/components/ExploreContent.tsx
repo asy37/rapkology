@@ -3,7 +3,7 @@ import Image from "next/image";
 import { trendsData } from "../utils";
 export const ExploreContent = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mb-4">
       {trendsData.map((i) => {
         return (
           <div
@@ -21,7 +21,9 @@ export const ExploreContent = () => {
                 <span className="h-8 w-8">
                   <Image src={i.img} alt="person" width={100} height={100} />
                 </span>
-                <span className="text-sm font-bold md:font-medium md:text-base">{i.name}</span>
+                <span className="text-sm font-bold md:font-medium md:text-base">
+                  {i.name}
+                </span>
               </div>
               <p className="text-xl md:text-2xl font-bold">
                 {i.description.toLocaleUpperCase()}
@@ -35,6 +37,16 @@ export const ExploreContent = () => {
           </div>
         );
       })}
+      <div className="w-full flex justify-center">
+        <button
+          className=" w-fit bg-white px-6 py-3 text-sm font-bold text-black cursor-pointer"
+          style={{
+            clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
+          }}
+        >
+          Tümünü Gör
+        </button>
+      </div>
     </div>
   );
 };

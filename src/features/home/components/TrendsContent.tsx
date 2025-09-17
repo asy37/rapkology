@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 export const TrendsContent = () => {
   return (
-    <div className="grid grid-rows-4 md:grid-cols-3">
+    <div className="grid grid-rows-4 md:grid-rows-2 md:grid-cols-3">
       {trendsData.map((i) => {
         return (
           <div

@@ -4,12 +4,12 @@ import { PlayCircleIcon } from "lucide-react";
 
 export const FavoriteContent = () => {
   return (
-    <div className="max-w-76 md:max-w-6xl h-96 overflow-x-auto flex md:grid md:grid-cols-3 items-start gap-20 relative">
+    <div className="max-w-76 md:max-w-6xl h-96 md:h-72 overflow-x-auto flex md:grid md:grid-cols-3 items-start gap-20 relative">
       {favoriteData.map((i) => {
         return (
           <div
             key={i.id}
-            className="w-68 h-88 bg-[#2A2A2A] relative group shrink-0"
+            className="w-68 h-88 md:h-64 bg-[#2A2A2A] relative group shrink-0"
           >
             <div className="relative w-68 h-60 z-20 overflow-hidden">
               <div className="object-cover absolute top-3 md:-translate-x-28 translate-x-5 group-hover:translate-x-6 group-hover:rotate-[9deg] transition-all duration-600 w-full h-full">

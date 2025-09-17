@@ -3,9 +3,9 @@ import { TrendsContent } from "../components/TrendsContent";
 
 export const Trends = () => {
   return (
-    <div className="p-10 flex flex-col">
-      <div className="flex items-center gap-2 text-white px-10">
-        <h1 className="text-6xl font-bold">TRENDLER</h1>
+    <div className="md:p-10 flex flex-col">
+      <div className="flex items-center gap-2 justify-center md:justify-start text-white p-10">
+        <h1 className="text-4xl md:text-6xl font-bold">TRENDLER</h1>
         <TrendingUpIcon size={42} />
       </div>
       <TrendsContent />
@@ -16,7 +16,7 @@ export const Trends = () => {
             clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
           }}
         >
-          Devamını Oku
+          Tümünü Gör
         </button>
       </div>
     </div>

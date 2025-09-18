@@ -1,14 +1,18 @@
+'use client'
 import { TrendingUpIcon } from "lucide-react";
 import { TrendsContent } from "../components/TrendsContent";
 import { BlogPost } from "@/lib/types/data/blogDataType";
+import { useRouter } from "next/navigation";
 
 type TrendsProps = {
   data: BlogPost[];
 };
 export const Trends: React.FC<TrendsProps> = ({ data }) => {
+  const router = useRouter();
+
   return (
-    <div className="md:p-10 flex flex-col">
-      <div className="flex items-center gap-2 justify-center md:justify-start text-white p-10">
+    <div className="flex flex-col">
+      <div className="flex items-center gap-2 justify-center md:justify-start text-white">
         <h1 className="text-4xl md:text-6xl font-bold">TRENDLER</h1>
         <TrendingUpIcon size={42} />
       </div>
@@ -19,6 +23,7 @@ export const Trends: React.FC<TrendsProps> = ({ data }) => {
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
           }}
+          onClick={() => router.push("blog")}
         >
           Tümünü Gör
         </button>

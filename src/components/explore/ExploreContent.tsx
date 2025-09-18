@@ -1,6 +1,9 @@
+"use client";
+
 import { useBlog } from "@/lib/hooks/useBlog";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -9,8 +12,8 @@ type ExploreProps = {
   limit?: number;
 };
 export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
-  console.log(blog);
-  
+  const router = useRouter();
+
   const { data: blogData } = useBlog(limit);
   return (
     <div
@@ -23,8 +26,9 @@ export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
         return (
           <div
             key={i._id}
-            className={twMerge("flex items-start flex-col gap-4 w-full py-8 text-white",
-              !blog && 'md:flex-row'
+            className={twMerge(
+              "flex items-start flex-col gap-4 w-full py-8 text-white",
+              !blog && "md:flex-row"
             )}
           >
             <div className="h-full w-full flex flex-col justify-between gap-2">
@@ -62,7 +66,10 @@ export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
                 {i.attributes.desc.toLocaleUpperCase()}
               </p>
               <div className="w-full h-[1px] bg-brandtext" />
-              <button className="group flex gap-2 items-center text-start cursor-pointer">
+              <button
+                onClick={() => router.push(`blog/${i.attributes.slug}`)}
+                className="group flex gap-2 items-center text-start cursor-pointer"
+              >
                 Daha Fazla Oku
                 <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-brandyellow" />
               </button>
@@ -77,6 +84,7 @@ export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
             }}
+            onClick={() => router.push("blog")}
           >
             Tümünü Gör
           </button>

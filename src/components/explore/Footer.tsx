@@ -1,6 +1,8 @@
+'use client'
 import { NavData } from "@/lib/mockData/navData";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -8,6 +10,8 @@ type FooterProps = {
   blog?: boolean;
 };
 export const Footer: React.FC<FooterProps> = ({ blog }) => {
+  const router = useRouter();
+
   return (
     <div
       className={twMerge(
@@ -77,6 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ blog }) => {
           {NavData.map((i) => {
             return (
               <button
+                onClick={() => router.push(i.url)}
                 className="text-white text-base text-start cursor-pointer"
                 key={i.id}
               >

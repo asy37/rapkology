@@ -18,7 +18,7 @@ export const HomeView = () => {
         <SwiperView />
       </div>
       <Banner />
-      <div>
+      <div className="md:p-10">
         <Trends data={blogData} />
       </div>
       <div>

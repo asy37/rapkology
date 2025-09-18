@@ -1,12 +1,17 @@
 "use client";
 import { ChevronRightIcon } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import React from "react";
+import { twMerge } from "tailwind-merge";
 
-export const Breadcrumb = () => {
+type BreadcrumbProps = {
+  className?: string;
+};
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({ className }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleNavigate = (url: string) => {    
+  const handleNavigate = (url: string) => {
     router.push(url);
   };
 
@@ -23,7 +28,7 @@ export const Breadcrumb = () => {
   const breadcrumbData = [{ id: -1, title: "anasayfa", url: "/" }, ...data];
 
   return (
-    <div className="w-full flex items-center gap-4">
+    <div className={twMerge("w-full hidden md:flex items-center gap-4", className)}>
       {breadcrumbData.map((i, idx) => (
         <div key={i.id} className="flex items-center gap-2">
           <button

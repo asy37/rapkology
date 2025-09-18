@@ -7,7 +7,7 @@ export const FavoriteTitle = () => {
     <div className="flex flex-col">
       <div className="relative w-full">
         <Image src="/favorite/vector1.png" alt="1" height={126} width={600} />
-        <div className="absolute top-4 left-10 md:left-20 z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
           <div className="w-full flex items-center gap-8">
             <YoutubeIcon className="w-36 h-12  hover:text-red-700 duration-200" />
             <SpotifyIcon className="w-36 h-12  hover:text-green-700 duration-200" />

@@ -5,8 +5,8 @@ import { Footer } from "../components/Footer";
 
 export const Expolore = () => {
   return (
-    <div className="md:p-10 p-4 md:grid md:grid-cols-2 gap-8 w-full">
-      <div className="flex flex-col">
+    <div className="md:p-10 p-4 md:grid md:grid-cols-3 gap-8 w-full">
+      <div className="flex flex-col col-span-2">
         <ExploreLeftHeaders />
         <div className="md:hidden block">
           <WhatSee />

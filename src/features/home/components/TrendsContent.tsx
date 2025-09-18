@@ -1,27 +1,38 @@
 import Image from "next/image";
-import { trendsData } from "../utils";
 import { ArrowRightIcon } from "lucide-react";
+import { BlogPost } from "@/lib/types/data/blogDataType";
+import { useTrends } from "../hooks/useTrends";
+import React from "react";
+type TrendsContentProps = {
+  data: BlogPost[];
+};
+export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
+  const trendData = useTrends(data);
 
-export const TrendsContent = () => {
   return (
-    <div className="grid grid-rows-4 md:grid-rows-2 md:grid-cols-3">
-      {trendsData.map((i) => {
+    <div className="grid auto-rows-auto md:grid-cols-3 gap-4">
+      {trendData.map((i, index) => {
         return (
           <div
-            key={i.id}
+            key={i._id}
             className="flex items-start gap-4 w-full p-8 text-white"
           >
             <span className="text-5xl font-bold text-[#2A2A2A]">
-              {i.number}
+              {index + 1}
             </span>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <span className="h-8 w-8">
-                  <Image src={i.img} alt="person" width={100} height={100} />
+                <span className="relative h-8 w-8">
+                  <Image
+                  className="rounded-lg"
+                    src={i.attributes.img}
+                    alt="person"
+                    fill
+                  />
                 </span>
-                <span>{i.name}</span>
+                <span>{i.attributes.authors}</span>
               </div>
-              <p>{i.description}</p>
+              <p>{i.attributes.desc}</p>
               <div className="w-full h-[1px] bg-[#3B3B3B]" />
               <button className="group flex gap-2 items-center text-start cursor-pointer">
                 Daha Fazla Oku

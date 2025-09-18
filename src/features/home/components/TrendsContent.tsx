@@ -1,16 +1,26 @@
+import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import { BlogPost } from "@/lib/types/data/blogDataType";
 import { useTrends } from "../hooks/useTrends";
 import React from "react";
+import { useRouter } from "next/navigation";
 type TrendsContentProps = {
   data: BlogPost[];
 };
 export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
   const trendData = useTrends(data);
+  const router = useRouter();
+
+  let gridColsClass = "md:grid-cols-3";
+  if (trendData.length === 1) {
+    gridColsClass = "md:grid-cols-1";
+  } else if (trendData.length === 2) {
+    gridColsClass = "md:grid-cols-2";
+  }
 
   return (
-    <div className="grid auto-rows-auto md:grid-cols-3 gap-4">
+    <div className={twMerge("grid auto-rows-auto gap-4", gridColsClass)}>
       {trendData.map((i, index) => {
         return (
           <div
@@ -24,7 +34,7 @@ export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
               <div className="flex items-center gap-4">
                 <span className="relative h-8 w-8">
                   <Image
-                  className="rounded-lg"
+                    className="rounded-lg"
                     src={i.attributes.img}
                     alt="person"
                     fill
@@ -32,9 +42,14 @@ export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
                 </span>
                 <span>{i.attributes.authors}</span>
               </div>
-              <p>{i.attributes.desc}</p>
+              <p className="text-xl/tight md:text-2xl/relaxed font-bold line-clamp-3">
+                {i.attributes.desc}
+              </p>
               <div className="w-full h-[1px] bg-brandtext" />
-              <button className="group flex gap-2 items-center text-start cursor-pointer">
+              <button
+                onClick={() => router.push(`blog/${i.attributes.slug}`)}
+                className="group flex gap-2 items-center text-start cursor-pointer"
+              >
                 Daha Fazla Oku
                 <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-brandyellow" />
               </button>

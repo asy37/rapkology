@@ -14,7 +14,7 @@ export const FavoriteTitle = () => {
           </div>
         </div>
       </div>
-      <div className="w-2xs md:p-20 md:text-start text-center mx-auto md:mx-0">
+      <div className="w-2xs md:p-10 md:text-start text-center mx-auto md:mx-0">
         <h1 className="text-white text-4xl md:text-6xl">AYIN FAVORİLERİ</h1>
       </div>
     </div>

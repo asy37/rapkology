@@ -3,12 +3,12 @@
 import { SwiperView } from "../sections/SwiperView";
 import { Trends } from "../sections/Trends";
 import { MounthFavorite } from "../sections/MounthFavorite";
-import { Expolore } from "../sections/Explore";
 import { Banner } from "../sections/Banner";
-import { useHome } from "../hooks/useHome";
+import { useBlog } from "../../../lib/hooks/useBlog";
 import React from "react";
+import { Explore } from "@/components";
 export const HomeView = () => {
-  const { data: blogRaw } = useHome();
+  const { data: blogRaw } = useBlog();
   const blogData = React.useMemo(() => {
     return blogRaw ?? [];
   }, [blogRaw]);
@@ -25,7 +25,7 @@ export const HomeView = () => {
         <MounthFavorite />
       </div>
       <div>
-        <Expolore />
+        <Explore blog={false} limit={3} />
       </div>
     </div>
   );

@@ -1,11 +1,21 @@
+"use client";
 import { NavData } from "@/lib/mockData/navData";
 import { SearchIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const DesktopNavbar = () => {
+  const router = useRouter();
   return (
     <div className="absolute top-0 left-0 min-w-full min-h-20 bg-black/10 backdrop-blur-md flex items-center justify-between px-10">
-      <Image src="/Logo.png" alt="Logo" width={235} height={60} />
+      <Image
+        src="/Logo.png"
+        alt="Logo"
+        width={235}
+        height={60}
+        onClick={() => router.push("/")}
+        className="cursor-pointer"
+      />
       <div className="flex items-center gap-[30px]">
         {NavData.map((nav) => {
           return (

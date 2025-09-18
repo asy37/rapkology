@@ -2,15 +2,24 @@
 import { NavData } from "@/lib/mockData/navData";
 import { SearchIcon, XIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
 export const MobileNavbar = () => {
+  const router = useRouter();
+
   const [open, setOpen] = React.useState(false);
   return (
     <>
       <div className="absolute top-0 left-0 min-w-full min-h-20 bg-black/10 backdrop-blur-md flex items-center justify-between px-10">
-        <Image src="/Logo.png" alt="Logo" width={182} height={45} />
+        <Image
+          src="/Logo.png"
+          alt="Logo"
+          width={182}
+          height={45}
+          onClick={() => router.push("/")}
+        />
 
         <button className="!w-8 h-3" onClick={() => setOpen(!open)}>
           <Image src="/menubutton.png" alt="Logo" width={30} height={10} />

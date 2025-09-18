@@ -1,15 +1,31 @@
+import { useBlog } from "@/lib/hooks/useBlog";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
-import { useHome } from "../hooks/useHome";
-export const ExploreContent = () => {
-  const { data: blogData } = useHome();
+import React from "react";
+import { twMerge } from "tailwind-merge";
+
+type ExploreProps = {
+  blog?: boolean;
+  limit?: number;
+};
+export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
+  console.log(blog);
+  
+  const { data: blogData } = useBlog(limit);
   return (
-    <div className="flex flex-col gap-8 mb-4">
-      {blogData?.slice(-3).map((i) => {
+    <div
+      className={twMerge(
+        "gap-8 mb-4",
+        blog ? "flex flex-col md:grid md:grid-cols-4" : "flex flex-col"
+      )}
+    >
+      {blogData?.map((i) => {
         return (
           <div
             key={i._id}
-            className="flex items-start flex-col md:flex-row gap-4 w-full py-8 text-white"
+            className={twMerge("flex items-start flex-col gap-4 w-full py-8 text-white",
+              !blog && 'md:flex-row'
+            )}
           >
             <div className="h-full w-full flex flex-col justify-between gap-2">
               <div className="relative bg-amber-400 h-48 w-full md:w-72">
@@ -20,7 +36,7 @@ export const ExploreContent = () => {
                   fill
                 />
               </div>
-              <span className="text-[#3B3B3B] text-base">
+              <span className="text-brandtext text-base">
                 {new Date(i.createdAt).toLocaleDateString("tr-TR", {
                   day: "2-digit",
                   month: "2-digit",
@@ -42,28 +58,30 @@ export const ExploreContent = () => {
                   {i.attributes.authors}
                 </span>
               </div>
-              <p className="text-xl md:text-2xl font-bold">
+              <p className="text-xl md:text-2xl font-bold line-clamp-4">
                 {i.attributes.desc.toLocaleUpperCase()}
               </p>
-              <div className="w-full h-[1px] bg-[#3B3B3B]" />
+              <div className="w-full h-[1px] bg-brandtext" />
               <button className="group flex gap-2 items-center text-start cursor-pointer">
                 Daha Fazla Oku
-                <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-[#F0E74D]" />
+                <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-brandyellow" />
               </button>
             </div>
           </div>
         );
       })}
-      <div className="w-full flex justify-center">
-        <button
-          className=" w-fit bg-white px-6 py-3 text-sm font-bold text-black cursor-pointer"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
-          }}
-        >
-          Tümünü Gör
-        </button>
-      </div>
+      {blog === false && (
+        <div className="w-full flex justify-center">
+          <button
+            className=" w-fit bg-white px-6 py-3 text-sm font-bold text-black cursor-pointer"
+            style={{
+              clipPath: "polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)",
+            }}
+          >
+            Tümünü Gör
+          </button>
+        </div>
+      )}
     </div>
   );
 };

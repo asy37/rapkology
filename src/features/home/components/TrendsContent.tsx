@@ -33,10 +33,10 @@ export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
                 <span>{i.attributes.authors}</span>
               </div>
               <p>{i.attributes.desc}</p>
-              <div className="w-full h-[1px] bg-[#3B3B3B]" />
+              <div className="w-full h-[1px] bg-brandtext" />
               <button className="group flex gap-2 items-center text-start cursor-pointer">
                 Daha Fazla Oku
-                <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-[#F0E74D]" />
+                <ArrowRightIcon className="opacity-0 group-hover:opacity-100 duration-300 text-brandyellow" />
               </button>
             </div>
           </div>

@@ -7,9 +7,10 @@ import { twMerge } from "tailwind-merge";
 
 type ExploreProps = {
   blog?: boolean;
+  limit?: number
 };
 
-export const Explore: React.FC<ExploreProps> = ({ blog }) => {
+export const Explore: React.FC<ExploreProps> = ({ blog,limit }) => {
   return (
     <div
       className={twMerge(
@@ -20,15 +21,15 @@ export const Explore: React.FC<ExploreProps> = ({ blog }) => {
       <div className="flex flex-col col-span-2 gap-4">
         <ExploreLeftHeaders />
         <div className={twMerge(blog ? "block" : "md:hidden block")}>
-          <WhatSee blog />
+          <WhatSee blog={blog} />
         </div>
-        <ExploreContent blog />
+        <ExploreContent blog={blog} limit={limit} />
       </div>
       <div className="flex flex-col gap-20">
         <div className={twMerge(blog ? "hidden" : "md:block hidden")}>
           <WhatSee />
         </div>
-        <Footer blog />
+        <Footer blog={blog} />
       </div>
     </div>
   );

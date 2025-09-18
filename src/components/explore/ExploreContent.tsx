@@ -6,14 +6,17 @@ import { twMerge } from "tailwind-merge";
 
 type ExploreProps = {
   blog?: boolean;
+  limit?: number;
 };
-export const ExploreContent: React.FC<ExploreProps> = ({ blog }) => {
-  const { data: blogData } = useBlog();
+export const ExploreContent: React.FC<ExploreProps> = ({ blog, limit }) => {
+  console.log(blog);
+  
+  const { data: blogData } = useBlog(limit);
   return (
     <div
       className={twMerge(
         "gap-8 mb-4",
-        blog ? "grid grid-cols-4" : "flex flex-col"
+        blog ? "flex flex-col md:grid md:grid-cols-4" : "flex flex-col"
       )}
     >
       {blogData?.map((i) => {
@@ -67,7 +70,7 @@ export const ExploreContent: React.FC<ExploreProps> = ({ blog }) => {
           </div>
         );
       })}
-      {!blog && (
+      {blog === false && (
         <div className="w-full flex justify-center">
           <button
             className=" w-fit bg-white px-6 py-3 text-sm font-bold text-black cursor-pointer"

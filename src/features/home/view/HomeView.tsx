@@ -25,7 +25,7 @@ export const HomeView = () => {
         <MounthFavorite />
       </div>
       <div>
-        <Explore />
+        <Explore blog={false} limit={3} />
       </div>
     </div>
   );

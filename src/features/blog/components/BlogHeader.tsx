@@ -30,12 +30,12 @@ export const BlogHeader = () => {
     router.push(`blog/${url}`);
   };
   return (
-    <div className="w-full bg-brandyellow relative mt-20 p-16">
+    <div className="w-full bg-brandyellow relative mt-20 px-4 pb-32 md:p-16">
       <Image src="/background.png" alt="background" fill className="absolute" />
       <div className="relative z-10 space-y-3 w-full">
         <Breadcrumb />
         <h1 className="text-6xl font-bold">BLOG</h1>
-        <div className="grid grid-cols-2 w-full gap-8">
+        <div className="md:grid md:grid-cols-2 w-full gap-8">
           <div
             key={selected?._id}
             onClick={() => handleNavigate(selected?.attributes?.slug ?? "")}
@@ -48,10 +48,11 @@ export const BlogHeader = () => {
                 fill
               />
             </div>
-            <p className="text-2xl font-bold">
+            <p className="text-xl md:text-2xl font-bold">
               {selected?.attributes?.desc ?? ""}
             </p>
           </div>
+          <div className="w-full h-[1px] my-3 md:hidden bg-brandtext" />
           <div className="flex flex-col gap-3 overflow-auto h-[500px]">
             {restOfData.map((i) => (
               <div
@@ -68,7 +69,7 @@ export const BlogHeader = () => {
                     fill
                   />
                 </div>
-                <p className="text-2xl/relaxed font-bold line-clamp-3 col-span-2">
+                <p className="text-xl/tight md:text-2xl/relaxed font-bold line-clamp-4 md:line-clamp-3 col-span-2">
                   {i.attributes.desc}
                 </p>
               </div>

@@ -12,7 +12,9 @@ export const Footer: React.FC<FooterProps> = ({ blog }) => {
     <div
       className={twMerge(
         "flex gap-8",
-        blog ? "flex-row justify-between items-center" : "flex-col"
+        blog
+          ? "flex-col md:flex-row md:justify-between md:items-center"
+          : "flex-col"
       )}
     >
       <div className="flex flex-col w-full">
@@ -66,9 +68,12 @@ export const Footer: React.FC<FooterProps> = ({ blog }) => {
             height={24}
           />
         </div>
-        <div className={twMerge("grid-cols-3 md:grid-cols-2",
-          blog ? 'flex justify-between items-center' : 'grid'
-        )}>
+        <div
+          className={twMerge(
+            "grid-cols-3 md:grid-cols-2",
+            blog ? "grid md:flex md:justify-between md:items-center" : "grid"
+          )}
+        >
           {NavData.map((i) => {
             return (
               <button

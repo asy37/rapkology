@@ -7,7 +7,9 @@ import Hydrate from "@/lib/utils/hydrateProvider";
 import { dehydrate } from "@tanstack/react-query";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 export const dynamic = "force-dynamic";
+
 type Props = {
   params: { slug: string };
 };
@@ -23,7 +25,7 @@ export default async function BlogDetailsPage({ params }: Props) {
   const dehydratedState = dehydrate(client);
 
   const rawData = await apiService.get<IBlogPost[]>(endpoint.blog);
-  const data = (await rawData).find((item) => item.attributes.slug === slug);
+  const data = rawData.find((item) => item.attributes.slug === slug);
 
   if (!data) notFound();
 
@@ -35,11 +37,11 @@ export default async function BlogDetailsPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const rawData = apiService.get<IBlogPost[]>(endpoint.blog);
-  const data = (await rawData).find((item) => item.attributes.slug === slug);
+  const { slug } = params;
+  const rawData = await apiService.get<IBlogPost[]>(endpoint.blog);
+  const data = rawData.find((item) => item.attributes.slug === slug);
 
-  if (!data?.attributes.seo) {
+  if (!data?.attributes?.seo) {
     return {
       title: "Rapkology",
       description: "Rapkology Haber",
@@ -49,10 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const seo = data.attributes.seo;
 
   return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
+    title: seo.metaTitle ?? "Rapkology",
+    description: seo.metaDescription ?? "Rapkology Haber",
     alternates: {
-      canonical: seo.canonicalURL,
+      canonical: seo.canonicalURL ?? "/",
     },
   };
 }

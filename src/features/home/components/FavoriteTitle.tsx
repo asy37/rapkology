@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { YoutubeIcon } from "../../../../public/favorite/YoutubeIcon";
-import { SpotifyIcon } from "../../../../public/favorite/SpotifyIcon";
+import { YoutubeIcon } from "./YoutubeIcon";
+import { SpotifyIcon } from "./SpotifyIcon";
 
 export const FavoriteTitle = () => {
   return (

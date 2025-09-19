@@ -22,7 +22,15 @@
     --color-brandtext: #3b3b3b;
   }
 }
-
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE ve Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
 body {
   background: var(--background);
   color: var(--foreground);

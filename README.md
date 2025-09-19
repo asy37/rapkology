@@ -1,5 +1,7 @@
 # Rapkology
 
+https://rapkology-case.vercel.app/
+
 Rapkology, Next.js (App Router) ve TypeScript ile geliştirilen, rap kültürü odaklı bir içerik platformudur. Blog yazıları, trendler, favoriler ve keşif bölümleriyle zengin bir kullanıcı deneyimi sunar.
 
 ## Özellikler

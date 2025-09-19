@@ -95,4 +95,12 @@ export const favoriteData = [
     album: "RÜZGAR",
     img: "/favorite/rüzgar.png",
   },
+  {
+    id: 4,
+    top: "Top 10",
+    line: "(2.Sıra)",
+    name: "50 CENT",
+    album: "CURSTIS",
+    img: "/favorite/curtis.png",
+  },
 ];

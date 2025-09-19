@@ -4,8 +4,10 @@ import { PlayCircleIcon } from "lucide-react";
 
 export const FavoriteContent = () => {
   return (
-    <div className="max-w-76 md:max-w-6xl h-96 md:h-72 overflow-x-auto flex md:grid md:grid-cols-3 items-start gap-20 relative">
+    <div className="max-w-76 md:max-w-6xl h-[400px] md:h-72 overflow-x-auto flex items-start gap-20 relative no-scrollbar">
       {favoriteData.map((i) => {
+        console.log(favoriteData);
+        
         return (
           <div
             key={i.id}

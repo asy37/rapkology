@@ -7,7 +7,7 @@ import Hydrate from "@/lib/utils/hydrateProvider";
 import { dehydrate } from "@tanstack/react-query";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-
+export const dynamic = "force-dynamic";
 type Props = {
   params: { slug: string };
 };

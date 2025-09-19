@@ -3,12 +3,16 @@
 import React from "react";
 import { BlogHeader } from "../components/BlogHeader";
 import { Explore } from "@/components";
+import { IBlogPost } from "@/lib/types/blog-post";
 
-export const BlogView = () => {
+type BlogViewProps = {
+  blogData: IBlogPost[];
+};
+export const BlogView: React.FC<BlogViewProps> = ({ blogData }) => {
   return (
     <div>
-      <BlogHeader />
-      <Explore blog />
+      <BlogHeader blogData={blogData} />
+      <Explore blog data={blogData} />
     </div>
   );
 };

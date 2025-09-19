@@ -1,7 +1,7 @@
 'use client'
 import { TrendingUpIcon } from "lucide-react";
 import { TrendsContent } from "../components/TrendsContent";
-import { BlogPost } from "@/lib/types/data/blogDataType";
+import { BlogPost } from "@/lib/types/blog-post";
 import { useRouter } from "next/navigation";
 
 type TrendsProps = {

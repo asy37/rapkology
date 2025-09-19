@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BlogPost } from "@/lib/types/data/blogDataType";
+import { BlogPost } from "@/lib/types/blog-post";
 
 export const useTrends = (data: BlogPost[]) => {
   const [trends, setTrends] = useState<BlogPost[]>([]);

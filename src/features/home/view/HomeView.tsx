@@ -4,14 +4,14 @@ import { SwiperView } from "../sections/SwiperView";
 import { Trends } from "../sections/Trends";
 import { MounthFavorite } from "../sections/MounthFavorite";
 import { Banner } from "../sections/Banner";
-import { useBlog } from "../../../lib/hooks/useBlog";
 import React from "react";
 import { Explore } from "@/components";
-export const HomeView = () => {
-  const { data: blogRaw } = useBlog();
-  const blogData = React.useMemo(() => {
-    return blogRaw ?? [];
-  }, [blogRaw]);
+import { IBlogPost } from "@/lib/types/blog-post";
+
+type HomeViewProps = {
+  data: IBlogPost[];
+};
+export const HomeView: React.FC<HomeViewProps> = ({ data }) => {
   return (
     <div className="flex flex-col h-full">
       <div>
@@ -19,13 +19,13 @@ export const HomeView = () => {
       </div>
       <Banner />
       <div className="md:p-10">
-        <Trends data={blogData} />
+        <Trends data={data} />
       </div>
       <div>
         <MounthFavorite />
       </div>
       <div>
-        <Explore blog={false} limit={3} />
+        <Explore blog={false} data={data} />
       </div>
     </div>
   );

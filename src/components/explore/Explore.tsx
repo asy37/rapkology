@@ -4,13 +4,14 @@ import { ExploreLeftHeaders } from "./ExploreLeftHeaders";
 import { Footer } from "./Footer";
 import { WhatSee } from "./WhatSee";
 import { twMerge } from "tailwind-merge";
+import { IBlogPost } from "@/lib/types/blog-post";
 
 type ExploreProps = {
   blog?: boolean;
-  limit?: number
+  data?: IBlogPost[]
 };
 
-export const Explore: React.FC<ExploreProps> = ({ blog,limit }) => {
+export const Explore: React.FC<ExploreProps> = ({ blog,data }) => {
   return (
     <div
       className={twMerge(
@@ -23,7 +24,7 @@ export const Explore: React.FC<ExploreProps> = ({ blog,limit }) => {
         <div className={twMerge(blog ? "block" : "md:hidden block")}>
           <WhatSee blog={blog} />
         </div>
-        <ExploreContent blog={blog} limit={limit} />
+        <ExploreContent blog={blog} blogData={data} />
       </div>
       <div className="flex flex-col gap-20">
         <div className={twMerge(blog ? "hidden" : "md:block hidden")}>

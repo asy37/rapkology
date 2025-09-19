@@ -1,7 +1,21 @@
 import axios from 'axios';
 
 function getBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_BASE_URL ?? '';
+  if (typeof window !== 'undefined') {
+    return '';
+  }
+
+  const envBase = process.env.NEXT_PUBLIC_BASE_URL;
+  if (envBase && envBase.trim().length > 0) {
+    return envBase;
+  }
+
+  const vercelUrl = process.env.VERCEL_URL;
+  if (vercelUrl && vercelUrl.trim().length > 0) {
+    return `https://${vercelUrl}`;
+  }
+
+  return 'http://localhost:3000';
 }
 
 const base = axios.create({

@@ -1,4 +1,4 @@
-export interface BlogPost {
+export interface IBlogPost {
   _id: string;
   user_id: string;
   type: "posts";

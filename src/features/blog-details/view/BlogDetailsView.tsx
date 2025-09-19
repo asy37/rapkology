@@ -1,54 +1,49 @@
 "use client";
 import { Breadcrumb } from "@/components";
-import { useBlog } from "@/lib/hooks/useBlog";
 import React from "react";
-import { useBlogDetails } from "../hooks/useBlogDetails";
 import { Footer } from "@/components/explore/Footer";
 import { Trends } from "@/features/home/sections/Trends";
 import { EyeIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import {  IBlogPost } from "@/lib/types/blog-post";
 
 type Props = {
-  slug: string;
+  data: IBlogPost;
+  blogRawData: IBlogPost[]
 };
 
-export const BlogDetailsView: React.FC<Props> = ({ slug }) => {
+export const BlogDetailsView: React.FC<Props> = ({ data , blogRawData}) => {
   const router = useRouter();
-  const { data: blogRawData } = useBlog();
-  const blogData = React.useMemo(() => {
-    return blogRawData ?? [];
-  }, [blogRawData]);
-  const data = useBlogDetails(blogData, slug);
+
 
   const handleNavigate = (url: string) => {
     router.push(`/blog/${url}`);
   };
-
+  
   return (
     <div className="b w-full mt-20 p-4 md:p-20 space-y-4">
       <Breadcrumb className="text-white" />
       <div className="flex flex-col md:grid md:grid-cols-3 gap-10">
         <div className="col-span-2 space-y-5">
-          {data.map((i) => (
-            <div key={i._id} className="space-y-5">
+            <div className="space-y-5">
               <span className="flex items-center gap-1 text-base text-white">
                 <EyeIcon size={18} />
                 <span>12.094</span>
               </span>
               <div className="text-white flex flex-col gap-5">
                 <h1 className="md:text-6xl text-4xl font-bold">
-                  {i.attributes.title}
+                  {data.attributes.title}
                 </h1>
                 <p className="text-2xl md:text-xl font-bold">
-                  {i.attributes.desc}
+                  {data.attributes.desc}
                 </p>
                 <div className="relative h-82 w-full">
-                  <Image src={i.attributes.img} alt={i.attributes.img} fill />
+                  <Image src={data.attributes.img} alt={data.attributes.img} fill />
                 </div>
-                <p className="text-base md:text-sm">{i.attributes.content}</p>
+                <p className="text-base md:text-sm">{data.attributes.content}</p>
                 <div className="flex items-center gap-2">
-                  {i.attributes.tags.map((t) => (
+                  {data.attributes.tags.map((t) => (
                     <span
                       className="bg-brandtext text-white p-2.5 text-base"
                       key={t}
@@ -59,13 +54,12 @@ export const BlogDetailsView: React.FC<Props> = ({ slug }) => {
                 </div>
               </div>
             </div>
-          ))}
           <div className="space-y-5">
             <h1 className="md:text-6xl text-4xl font-bold text-white">
               DAHA FAZLA İÇERİK
             </h1>
             <div className="h-96 overflow-auto space-y-5">
-              {blogData.map((more) => (
+              {blogRawData.map((more) => (
                 <div
                   key={more._id}
                   className="space-y-5"
@@ -89,7 +83,7 @@ export const BlogDetailsView: React.FC<Props> = ({ slug }) => {
               ))}
             </div>
           </div>
-          <Trends data={blogData} />
+          <Trends data={blogRawData} />
         </div>
         <Footer />
       </div>

@@ -1,18 +1,20 @@
 "use client";
 
 import { Breadcrumb } from "@/components";
-import { useBlog } from "@/lib/hooks/useBlog";
-import { BlogPost } from "@/lib/types/data/blogDataType";
+import { IBlogPost } from "@/lib/types/blog-post";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export const BlogHeader = () => {
+type HeaderProps = {
+  blogData: IBlogPost[];
+};
+export const BlogHeader: React.FC<HeaderProps> = ({ blogData }) => {
   const router = useRouter();
-  const [selected, setSelected] = React.useState<BlogPost>();
-  const [restOfData, setRestOfData] = React.useState<BlogPost[]>([]);
+  const [selected, setSelected] = React.useState<IBlogPost>();
+  const [restOfData, setRestOfData] = React.useState<IBlogPost[]>([]);
 
-  const { data: blogData } = useBlog();
   React.useEffect(() => {
     if (blogData && blogData.length > 0) {
       setSelected(blogData[0]);

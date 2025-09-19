@@ -1,6 +1,5 @@
-import { Endpoints } from "@/lib/types/endpoints/endpoints";
+import { IEndpoints } from "@/lib/types/base-response";
 
-export const endpoint: Endpoints = {
+export const endpoint: IEndpoints = {
   blog: "/api/blog",
-  blogpost: (id: string) => `/api/blog-post/${id}`,
 };

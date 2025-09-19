@@ -14,9 +14,12 @@ export const WhatSee: React.FC<ExploreProps> = ({ blog }) => {
             NE GÖRMEK İSTERSİN?
           </h1>
         )}
-        <div className={twMerge("flex overflow-x-auto gap-4",
-          !blog && 'md:grid md:grid-cols-3'
-        )}>
+        <div
+          className={twMerge(
+            "flex overflow-x-auto gap-4",
+            !blog && "md:grid md:grid-cols-3"
+          )}
+        >
           {whatSeeData.map((i) => {
             return (
               <span

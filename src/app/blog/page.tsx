@@ -8,9 +8,7 @@ import { dehydrate } from "@tanstack/react-query";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-type Props = {
-  params: { slug: string };
-};
+export const dynamic = "force-dynamic";
 
 const Blog = async () => {
   const client = getQueryClient();
@@ -33,29 +31,7 @@ const Blog = async () => {
 
 export default Blog;
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
-  const { slug } = params;
-  const rawData = apiService.get<IBlogPost[]>(endpoint.blog)
-  const  data = (await rawData).find(item => item.attributes.slug === slug);
-
-
-  if (!data?.attributes.seo) {
-    return {
-      title: "Rapkology",
-      description: "Rapkology Haber",
-    };
-  }
-
-  const seo = data.attributes.seo;
-
-  return {
-    title: seo.metaTitle,
-    description: seo.metaDescription,
-    alternates: {
-      canonical: seo.canonicalURL,
-    },
-    
-  };
-}
+export const metadata: Metadata = {
+  title: "Blog - Rapkology",
+  description: "Rapkology blog yazıları ve haberler",
+};

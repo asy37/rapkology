@@ -1,4 +1,4 @@
-import { Instance } from './instance';
+import { Instance } from "./instance";
 
 const post = async <T>(endpoint: string, data: T) => {
   const response = await Instance.base.post(endpoint, data);

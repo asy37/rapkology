@@ -96,4 +96,3 @@ export const favoriteData = [
     img: "/favorite/rüzgar.png",
   },
 ];
-

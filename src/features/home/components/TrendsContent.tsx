@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
-import { BlogPost } from "@/lib/types/blog-post";
 import { useTrends } from "../hooks/useTrends";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { IBlogPost } from "@/lib/types/blog-post";
 type TrendsContentProps = {
-  data: BlogPost[];
+  data: IBlogPost[];
 };
 export const TrendsContent: React.FC<TrendsContentProps> = ({ data }) => {
   const trendData = useTrends(data);

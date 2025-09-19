@@ -12,9 +12,8 @@ type Props = {
   params: { slug: string };
 };
 
-
 export default async function BlogDetailsPage({ params }: Props) {
-  const slug = params.slug
+  const slug = params.slug;
 
   const client = getQueryClient();
   await client.prefetchQuery({
@@ -24,22 +23,21 @@ export default async function BlogDetailsPage({ params }: Props) {
   const dehydratedState = dehydrate(client);
 
   const rawData = await apiService.get<IBlogPost[]>(endpoint.blog);
-  const data = (await rawData).find(item => item.attributes.slug === slug);
+  const data = (await rawData).find((item) => item.attributes.slug === slug);
 
+  if (!data) notFound();
 
-
-  if(!data) notFound();
-
-  return <Hydrate state={dehydratedState}><BlogDetailsView data={data} blogRawData={rawData} /></Hydrate>;
+  return (
+    <Hydrate state={dehydratedState}>
+      <BlogDetailsView data={data} blogRawData={rawData} />
+    </Hydrate>
+  );
 }
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const rawData = apiService.get<IBlogPost[]>(endpoint.blog)
-  const  data = (await rawData).find(item => item.attributes.slug === slug);
-
+  const rawData = apiService.get<IBlogPost[]>(endpoint.blog);
+  const data = (await rawData).find((item) => item.attributes.slug === slug);
 
   if (!data?.attributes.seo) {
     return {
@@ -56,6 +54,5 @@ export async function generateMetadata({
     alternates: {
       canonical: seo.canonicalURL,
     },
-    
   };
 }

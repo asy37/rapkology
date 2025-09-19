@@ -22,7 +22,7 @@ export const DesktopNavbar = () => {
             <button
               key={nav.id}
               className="h-3.5 font-medium text-white cursor-pointer"
-              onClick={()=> router.push(nav.url)}
+              onClick={() => router.push(nav.url)}
             >
               {nav.title}
             </button>

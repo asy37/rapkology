@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brandyellow: #F0E74D;
-  --color-brandtext: #3B3B3B;
+  --color-brandyellow: #f0e74d;
+  --color-brandtext: #3b3b3b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -18,8 +18,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --color-brandyellow: #F0E74D;
-    --color-brandtext: #3B3B3B;
+    --color-brandyellow: #f0e74d;
+    --color-brandtext: #3b3b3b;
   }
 }
 
@@ -43,5 +43,5 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background: #F0E74D !important;
+  background: #f0e74d !important;
 }

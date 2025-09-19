@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import { TrendingUpIcon } from "lucide-react";
 import { TrendsContent } from "../components/TrendsContent";
-import { BlogPost } from "@/lib/types/blog-post";
 import { useRouter } from "next/navigation";
+import { IBlogPost } from "@/lib/types/blog-post";
 
 type TrendsProps = {
-  data: BlogPost[];
+  data: IBlogPost[];
 };
 export const Trends: React.FC<TrendsProps> = ({ data }) => {
   const router = useRouter();

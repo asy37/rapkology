@@ -1,8 +1,8 @@
+import { IBlogPost } from "@/lib/types/blog-post";
 import { useState, useEffect } from "react";
-import { BlogPost } from "@/lib/types/blog-post";
 
-export const useTrends = (data: BlogPost[]) => {
-  const [trends, setTrends] = useState<BlogPost[]>([]);
+export const useTrends = (data: IBlogPost[]) => {
+  const [trends, setTrends] = useState<IBlogPost[]>([]);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -14,4 +14,4 @@ export const useTrends = (data: BlogPost[]) => {
   }, [data]);
 
   return trends;
-}
+};

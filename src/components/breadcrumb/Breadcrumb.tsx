@@ -28,7 +28,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ className }) => {
   const breadcrumbData = [{ id: -1, title: "anasayfa", url: "/" }, ...data];
 
   return (
-    <div className={twMerge("w-full hidden md:flex items-center gap-4", className)}>
+    <div
+      className={twMerge("w-full hidden md:flex items-center gap-4", className)}
+    >
       {breadcrumbData.map((i, idx) => (
         <div key={i.id} className="flex items-center gap-2">
           <button

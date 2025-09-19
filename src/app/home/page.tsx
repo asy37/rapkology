@@ -8,6 +8,8 @@ import { dehydrate } from "@tanstack/react-query";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: { slug: string };
 };
@@ -33,13 +35,10 @@ const Home = async () => {
 
 export default Home;
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const rawData = await apiService.get<IBlogPost[]>(endpoint.blog);
-  const data = rawData.find(item => item.attributes.slug === slug);
-
+  const data = rawData.find((item) => item.attributes.slug === slug);
 
   if (!data?.attributes.seo) {
     return {
@@ -56,6 +55,5 @@ export async function generateMetadata({
     alternates: {
       canonical: seo.canonicalURL,
     },
-    
   };
 }

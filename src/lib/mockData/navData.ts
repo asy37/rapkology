@@ -2,26 +2,26 @@ export const NavData = [
   {
     id: 1,
     title: "HABERLER",
-    url: '/blog'
+    url: "/blog",
   },
   {
     id: 2,
     title: "ETKİNLİKLER",
-    url: '/blog'
+    url: "/blog",
   },
   {
     id: 3,
     title: "MÜZİKLER",
-    url: '/blog'
+    url: "/blog",
   },
   {
     id: 4,
     title: "VİDEOLAR",
-    url: '/blog'
+    url: "/blog",
   },
   {
     id: 5,
     title: "İLETİŞİM",
-    url: '/blog'
+    url: "/blog",
   },
 ];

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { NavData } from "@/lib/mockData/navData";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";

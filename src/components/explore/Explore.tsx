@@ -8,10 +8,10 @@ import { IBlogPost } from "@/lib/types/blog-post";
 
 type ExploreProps = {
   blog?: boolean;
-  data?: IBlogPost[]
+  data?: IBlogPost[];
 };
 
-export const Explore: React.FC<ExploreProps> = ({ blog,data }) => {
+export const Explore: React.FC<ExploreProps> = ({ blog, data }) => {
   return (
     <div
       className={twMerge(

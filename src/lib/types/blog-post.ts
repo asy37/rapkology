@@ -19,7 +19,7 @@ export interface IBlogPost {
     img: string;
   };
   lang: string;
-  createdAt: string; // ISO tarih
-  updatedAt: string; // ISO tarih
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 }
